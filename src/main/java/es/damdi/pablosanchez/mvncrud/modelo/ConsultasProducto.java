@@ -9,6 +9,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  * @author usuario
@@ -123,4 +132,25 @@ public class ConsultasProducto extends Conexion {
             }
         }
     }
+
+    public List<Producto> getAll() {
+        List<Producto> productos = new ArrayList<>();
+        try (Connection con = getConexion();
+             PreparedStatement ps = con.prepareStatement("SELECT * FROM producto");
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                IntegerProperty id = new SimpleIntegerProperty(rs.getInt("id"));
+                StringProperty nombre = new SimpleStringProperty(rs.getString("nombre"));
+                DoubleProperty precio = new SimpleDoubleProperty(rs.getDouble("precio"));
+
+                productos.add(new Producto(id, nombre, precio));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener los productos: " + e.getMessage());
+        }
+        return productos;
+    }
+
+
 }

@@ -5,11 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import es.damdi.pablosanchez.mvncrud.controlador.ProductoController;
 import es.damdi.pablosanchez.mvncrud.controlador.RootLayoutController;
 
 /**
@@ -39,17 +41,15 @@ public class Main extends Application {
 		try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/frmProducto.fxml"));
-            SplitPane frame = (SplitPane) loader.load();
+            loader.setLocation(getClass().getResource("view/frmProducto.fxml"));
+            AnchorPane frame = (AnchorPane) loader.load();
 
             // Fill the center
             rootLayout.setCenter(frame);
 
             // Give the controller access to the main app.
-//            RootLayoutController controller = loader.getController();
-//            controller.setMainApp(this);
-
-            primaryStage.show();
+            ProductoController controller = loader.getController();
+            controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }

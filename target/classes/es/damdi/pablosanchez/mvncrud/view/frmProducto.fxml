@@ -5,47 +5,53 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.29797979797979796" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-         <children>
-            <TableView prefHeight="398.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <columns>
-                <TableColumn prefWidth="90.0" text="Nombre" />
-                <TableColumn prefWidth="82.0" text="Precio" />
-              </columns>
-            </TableView>
-         </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-         <children>
-            <GridPane prefHeight="398.0" prefWidth="417.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="13.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.damdi.pablosanchez.mvncrud.controlador.ProductoController">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Label text="Codigo" />
-                  <Label text="Nombre" GridPane.rowIndex="1" />
-                  <Label text="Precio" GridPane.rowIndex="2" />
-                  <Label text="Cantidad" GridPane.rowIndex="3" />
-                  <TextField GridPane.columnIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TableView fx:id="tablaProductos" prefHeight="398.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn fx:id="columnaNombre" prefWidth="90.0" text="Nombre" />
+                        <TableColumn fx:id="columnaPrecio" prefWidth="82.0" text="Precio" />
+                     </columns>
+                  </TableView>
                </children>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-            <HBox layoutX="128.0" layoutY="359.0" spacing="15.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="359.0">
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" text="Guardar" />
-                  <Button mnemonicParsing="false" text="Borrar" />
+                  <GridPane prefHeight="398.0" prefWidth="417.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="13.0">
+                     <children>
+                        <Label text="Codigo" />
+                        <Label text="Nombre" GridPane.rowIndex="1" />
+                        <Label text="Precio" GridPane.rowIndex="2" />
+                        <Label text="Cantidad" GridPane.rowIndex="3" />
+                        <TextField fx:id="tfCodigo" GridPane.columnIndex="1" />
+                        <TextField fx:id="tfNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="tfPrecio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="tfCantidad" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <HBox layoutX="128.0" layoutY="359.0" spacing="15.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="359.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleGuardar" text="Guardar" />
+                        <Button mnemonicParsing="false" onAction="#handleBorrar" text="Borrar" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-         </children></AnchorPane>
-  </items>
-</SplitPane>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

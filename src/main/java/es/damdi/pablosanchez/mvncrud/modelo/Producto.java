@@ -7,6 +7,9 @@ package es.damdi.pablosanchez.mvncrud.modelo;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -14,19 +17,37 @@ import javafx.beans.property.StringProperty;
  *
  */
 public class Producto {
-	private int id;
-    private StringProperty codigo;
-    private StringProperty nombre;
-    private DoubleProperty precio;
-    private IntegerProperty cantidad;
+	private IntegerProperty id = new SimpleIntegerProperty();
+    private StringProperty codigo = new SimpleStringProperty();
+    private StringProperty nombre = new SimpleStringProperty();
+    private DoubleProperty precio = new SimpleDoubleProperty();
+    private IntegerProperty cantidad = new SimpleIntegerProperty();
 
     public int getId() {
-        return id;
+        return id.get();
+    }
+    
+    public Producto() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    /**
+	 * @param id
+	 * @param nombre
+	 * @param precio
+	 */
+	public Producto(IntegerProperty id, StringProperty nombre, DoubleProperty precio) {
+		this.id = id;
+		this.nombre = nombre;
+		this.precio = precio;
+	}
+
+	public void setId(int id) {
+        this.id.set(id);
     }
+	
+	public IntegerProperty idProperty() {
+		return id;
+	}
 
     public String getCodigo() {
         return codigo.get();
@@ -34,6 +55,10 @@ public class Producto {
 
     public void setCodigo(String codigo) {
         this.codigo.set(codigo);
+    }
+    
+    public StringProperty codigoProperty() {
+		return codigo;
     }
 
     public String getNombre() {
@@ -43,6 +68,10 @@ public class Producto {
     public void setNombre(String nombre) {
         this.nombre.set(nombre);
     }
+    
+    public StringProperty nombreProperty() {
+		return nombre;
+    }
 
     public Double getPrecio() {
         return precio.get();
@@ -51,6 +80,10 @@ public class Producto {
     public void setPrecio(Double precio) {
         this.precio.set(precio);;
     }
+    
+    public DoubleProperty precioProperty() {
+		return precio;
+    }
 
     public int getCantidad() {
         return cantidad.get();
@@ -58,5 +91,9 @@ public class Producto {
 
     public void setCantidad(int cantidad) {
         this.cantidad.set(cantidad);
+    }
+    
+    public IntegerProperty cantidadProperty() {
+    	return cantidad;
     }
 }
